@@ -1,12 +1,12 @@
 --1.Prepare script to create table1 and table2 with primary key
-CREATE TABLE Companies (
-  id int,
-  name varchar(50),
-  address text,
-  email varchar(50),
-  phone varchar(10)
+CREATE TABLE Company (
+  com_id int,
+  com_name varchar(50),
+  com_address varchar(50),
+  com_Email varchar(50),
+  com_Phone varchar(10)
 );
-INSERT INTO Companies(emp_id,emp_name,emp_address,emp_email,emp_phone)
+INSERT INTO Company(com_id,com_name,com_address,com_Email,com_Phone)
 VALUES(2000,'Bosch','Koramangala','Bosch@abc',6656755667),
 (2001,'Accenture','Jayangar','Accenture@abc',6757385667),
 (2002,'Tricon','Kengeri','Tricon@abc',9953746325),
@@ -16,18 +16,17 @@ VALUES(2000,'Bosch','Koramangala','Bosch@abc',6656755667),
 --2. Prepare script to add foreign key constraint on any one table
 
 CREATE TABLE Employee (
-  Empid int primary key,
+  emp_id int primary key,
   id int,
-  Fname varchar(50),
-  Lname varchar(50),
-  address text,
-  email varchar(50),
-  phone varchar(10),
-  constraint FK_Employee foreign key(id) references Companies (id)
+  emp_Fname varchar(50),
+  emp_Lname varchar(50),
+  emp_Email varchar(50),
+  emp_Phone varchar(10),
+  constraint FK_Employee foreign key(id) references Company (com_id)
 );
 
 
-INSERT into Employee(emp_id,emp_id,emp_Fname,emp_Lname,emp_Email,emp_Phone)
+INSERT into Employee(emp_id,id,emp_Fname,emp_Lname,emp_Email,emp_Phone)
 VALUES(1000,2000,'Hardy','Tom','Hardy@abc','9757546467'),
 (1001,2000,'Strange','steven','Starnge@abc','8765656543'),
 (1002,2001,'Holland','Tom','Holland@abc','9876765678'),
@@ -36,14 +35,10 @@ VALUES(1000,2000,'Hardy','Tom','Hardy@abc','9757546467'),
 
 --3. Prepare script to add unique constraint to any one column
 ALTER TABLE Employee
-Add UNIQUE (Empid);
+Add UNIQUE (emp_id);
 
 --4. Prepare script to add index to any column
-CREATE INDEX serialNo on Companies ( id ,
-  name,
-  address ,
-  email ,
-  phone);
+CREATE INDEX serialNo on Company ( com_id);
 
 --5. Create insert queries to add around 4 to 8 rows in both the tables
 INSERT into Employee(Empid,id,Fname,Lname,email,phone)
