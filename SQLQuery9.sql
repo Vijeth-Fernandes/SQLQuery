@@ -41,7 +41,7 @@ Add UNIQUE (emp_id);
 CREATE INDEX serialNo on Company ( com_id);
 
 --5. Create insert queries to add around 4 to 8 rows in both the tables
-INSERT into Employee(Empid,id,Fname,Lname,email,phone)
+INSERT into Employee(emp_id,id,emp_Fname,emp_Lname,emp_Email,emp_Phone)
 VALUES(1005,2003,'Sumith','Anshul','Sumith@abc','9757546468'),
 (1006,2003,'Kedar','steven','Kedar@abc','8765656544'),
 (1007,2001,'Kathir','Tom','Kathir@abc','9876765679');
